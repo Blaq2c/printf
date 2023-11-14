@@ -1,6 +1,5 @@
 #ifndef MAIN_H
 #define MAIN_H
-
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
@@ -8,27 +7,30 @@
 #include <limits.h>
 
 /**
- * struct conversion_pair - structure for converting printf specifiers
- * @placeholder: specifier string
- * @function: corresponding conversion function
+ * struct format - conveting to printf
+ * @ph: type char pointer of the specifier
+ * @function: function for thr conversion
+ *
  */
-typedef struct conversion_pair
+
+typedef struct format
 {
-    char *placeholder;
-    int (*function)(va_list);
-} conversion_pair;
+	char *ph;
+	int (*function)();
+} convert;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
 int print_str(va_list arg);
-int print_char(va_list val);
-int print_percent(void);
+int print_c(va_list val);
+int print_37(void);
 int _strlenc(const char *str);
 int _strlen(char *str);
 int print_bin(va_list val);
-int print_integer(va_list args);
-int print_decimal(va_list args);
-int print_string(va_list val);
+int print_i(va_list args);
+int print_d(va_list args);
+int print_s(va_list val);
 
-#endif /* MAIN_H */
 
+
+#endif
